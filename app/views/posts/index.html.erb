@@ -1,0 +1,18 @@
+<h1> Our Blog </h1>
+ <table border="1" >
+    <th width=300   bgcolor="grey">Title</th>
+    <th width=600   bgcolor="grey"> Content</th> 
+    <th width=100   bgcolor="grey"> Modify</th> 
+    <th width=100   bgcolor="grey"> Delete</th>     
+  <% @posts.each do |post| %>
+  <tr>
+   <td><%=link_to post.title, post %></td>
+   <td> <p> <%=post.content%> </p></td>
+   <td> <p><%=link_to "Edit", edit_post_path(post) %> </p></td>
+   <td> <p><%=link_to 'Delete', post, :confirm => 'Are you Sure ?', :method =>:delete %> </p></td>
+ </tr>
+<% end %>
+</table> 
+
+<p> <%=link_to "Add a New Post", new_post_path %> </p>
+
